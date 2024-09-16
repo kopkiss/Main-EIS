@@ -15,7 +15,9 @@ app = Celery('mydj1')
 #   should have a `CELERY_` prefix.
 # app.config_from_object('django.conf:settings')
 app.config_from_object('django.conf:settings', namespace='CELERY')
-# app.conf.broker_url = 'redis://localhost:6379/0'
+
+# เปิด broker ด้วย redis 
+app.conf.broker_url = 'redis://localhost:6379/0'
 
 # Load task modules from all registered Django app configs.
 app.autodiscover_tasks()
